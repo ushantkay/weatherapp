@@ -11,8 +11,8 @@ body {
 }
 
 .card {
-    background: #000000d0 linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-    color: white;
+    background: #000000c3 linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    color: #fcfcfcfc;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 2em;
@@ -36,14 +36,11 @@ button {
     width: 40px;
     outline: none;
     background: #7c7c7c2b;
-    color: white;
+    color: #fcfcfcfc;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 
-button:hover {
-    background: #7c7c7c6b;
-}
 
 input.search-bar {
     border: none;
@@ -51,11 +48,21 @@ input.search-bar {
     padding: 0.4em 1em;
     border-radius: 21px;
     background-color: #7c7c7c2b;
-    color: white;
+    color: #fcfcfcfc;
     font-family: inherit;
     font-size: 100%;
     width: calc(100% - 80px);
+    transition: background-color 0.2s ease-in-out;
 }
+
+button:hover, input.search-bar:hover {
+    background: #f05941;
+    color: #000000;
+}
+
+.city {
+    white-space: pre-wrap;
+  }
 
 h1.temp {
     margin-top: 5px;
@@ -70,11 +77,16 @@ h1.temp {
     display: flex;
     align-items: center;
     justify-content: right;
+    padding-top: 15px;
 }
 
 .right-align {
     border-left: 1px solid #ccc;
     padding-left: 10px; 
+}
+
+.left-align {
+    margin: 0px 10px;
 }
 
 .humidity,
@@ -100,8 +112,44 @@ h1.temp {
 .weather.loading.after {
     visibility: visible;
     content: "Loading...";
-    color: white;
+    color: #fcfcfcfc;
     position: absolute;
     top: 0;
     left: 20px;
+}
+
+.forecast {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: 2em; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.forecast-item {
+    border-radius: 15px;
+    padding: 0.5em;
+    text-align: center; 
+    color: white;
+    transition: transform 0.2s ease-in-out; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-item:hover {
+    background: #f05941;
+    color:#000000;
 }
